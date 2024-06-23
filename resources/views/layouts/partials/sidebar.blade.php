@@ -19,7 +19,7 @@
             $background = 'ECF5FF';
             $text = '1ea8e7';
             $avatar = 'https://ui-avatars.com/api/?background=' . $background . '&color=' . $text . '&name=' . $user_name;
-            
+
         @endphp
         <!-- User Menu Start -->
         <div class="user-container d-flex">
@@ -59,18 +59,12 @@
         <!-- Menu Start -->
         <div class="menu-container flex-grow-1">
             <ul id="menu" class="menu">
-                @role('admin')
-                    @include('layouts.partials.roles_sidebars.admin_sidebar')
-                @endrole
-                @role('librarian')
-                    @include('layouts.partials.roles_sidebars.librarian_sidebar')
-                @endrole
-                @role('student')
-                    @include('layouts.partials.roles_sidebars.student_sidebar')
-                @endrole
-                @role('faculty')
-                    @include('layouts.partials.roles_sidebars.faculty_sidebar')
-                @endrole
+                <li>
+                    <a class="" href="{{ route('applications.index') }}">
+                        <i data-acorn-icon="user" class="d-inline-block"></i>
+                        <span class="label">Applications</span>
+                    </a>
+                </li>
                 <li>
                     <a class="" href="{{ route('logout') }}">
                         <i data-acorn-icon="logout" class="d-inline-block"></i>

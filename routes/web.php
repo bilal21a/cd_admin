@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\ApplicationController;
 use App\Http\Controllers\AuthorController;
 use App\Http\Controllers\BookController;
 use App\Http\Controllers\BorrowRequestController;
@@ -32,13 +33,15 @@ Route::get('/', function () {
 
 Route::middleware(['auth'])->group(function () {
 
-    Route::group(['middleware' => ['role:admin']], function () {
+    // Route::group(['middleware' => ['role:admin']], function () {
         Route::get('reports', [ReportsController::class, 'index'])->name('reports.index');
 
         // Users Management
         Route::resource('users', 'UserController');
         Route::get('get_users', [UserController::class, 'get_data'])->name('get_users');
-    });
+        Route::resource('applications', 'ApplicationController');
+        Route::get('get_applications', [ApplicationController::class, 'get_data'])->name('get_applications');
+    // });
 });
 
 Auth::routes();
