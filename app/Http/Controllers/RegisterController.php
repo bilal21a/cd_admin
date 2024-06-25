@@ -3,11 +3,13 @@
 namespace App\Http\Controllers;
 
 use App\Application;
+use App\Traits\ApiResponser;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Validator;
 
 class RegisterController extends Controller
 {
+    use ApiResponser;
     public function register(Request $request)
     {
         // dd("test");
@@ -16,8 +18,8 @@ class RegisterController extends Controller
             "applicant_email" => "required|email|max:255",
             "applicant_address" => "required|string|max:255",
             "applicant_passport_number" => "required|string|max:50",
-            "applicant_image" => "required|string|max:255",
-            "applicant_dob" => "required|date",
+            "applicant_image" => "required",
+            "applicant_dob" => "required",
             "job_id" => "required|integer",
             // "job_id" => "required|integer|exists:jobs,id",
             // "applicant_uci" => "required|string|max:50",
