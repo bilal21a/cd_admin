@@ -1,9 +1,9 @@
 <script>
-    function editFormShow(id) {
+    function editVoucherFormShow(id) {
             event.preventDefault();
-            $('#modalTitle').html(edit_title);
+            $('.modal-title').html('Edit Voucher');
             $('#add_data_form').html('');
-            url = edit_form_url.replace(':id', id);
+            url = edit_voucher_form_url.replace(':id', id);
 
             $.ajax({
                 type: 'GET',
@@ -12,20 +12,20 @@
                     'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
                 },
                 success: function(data) {
-                    $('#edit_data_form').html(data);
+                    $('#edit_voucher_data_form').html(data);
                 },
             });
         }
 
 
-        $('#edit_data_form').on('submit', function(e) {
+        $('#edit_voucher_data_form').on('submit', function(e) {
             e.preventDefault();
             let singleDeleteDraw = {
                 ...dataTable
             };
             let id =$('#edit_id').val()
             console.log('id: ', id);
-            url = update_data_url.replace(':id', id);
+            url = update_voucher_data_url.replace(':id', id);
 
 
             var formData = new FormData(this);

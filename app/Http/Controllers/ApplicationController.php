@@ -29,7 +29,7 @@ class ApplicationController extends Controller
         $applications = Application::get();
         return DataTables::of($applications)
         ->addColumn('action', function ($application) {
-            return $this->get_buttons($application->id);
+            return $this->for_application($application->id);
         })
         ->addColumn('html_status', function ($user) {
             if ($user->applicant_payment_status == 1) {
