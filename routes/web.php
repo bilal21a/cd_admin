@@ -6,6 +6,7 @@ use App\Http\Controllers\BookController;
 use App\Http\Controllers\BorrowRequestController;
 use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\IssuedBooksController;
+use App\Http\Controllers\JobController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\RenewRequestController;
 use App\Http\Controllers\ReportsController;
@@ -42,6 +43,8 @@ Route::middleware(['auth'])->group(function () {
         Route::resource('applications', 'ApplicationController');
         Route::get('get_applications', [ApplicationController::class, 'get_data'])->name('get_applications');
         Route::resource('vouchers', 'VoucherController');
+        Route::resource('jobs', 'JobController');
+        Route::get('get_jobs', [JobController::class, 'get_data'])->name('get_jobs');
     // });
 });
 

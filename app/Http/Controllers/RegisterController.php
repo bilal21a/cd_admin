@@ -22,11 +22,6 @@ class RegisterController extends Controller
             "applicant_dob" => "required",
             "job_id" => "required|integer",
             // "job_id" => "required|integer|exists:jobs,id",
-            // "applicant_uci" => "required|string|max:50",
-            // "applicant_ref_no" => "required|string|max:50",
-            // "applicant_tracking_no" => "required|string|max:50",
-            // "applicant_due_date" => "required|date",
-            //  "applicant_payment_status" => "required|boolean",
         ]);
 
         if ($validator->fails()) {

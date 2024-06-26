@@ -74,10 +74,9 @@ class VoucherController extends Controller
      */
     public function edit($id)
     {
-        $application_id =11;
-
-        return view('users.modal.coupon_add',compact('application_id'));
-
+        $voucher =Voucher::find($id);
+        // dd($voucher);
+        return view('users.modal.coupon_update',compact('id','voucher'));
     }
 
     /**
@@ -89,7 +88,19 @@ class VoucherController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $validate = Validator::make($request->all(), [
+            "voucher_title" => "required|string|max:255",
+            "voucher_price" => "required|numeric",
+        ]);
+
+        if ($validate->fails()) {
+            return response()->json($validate->errors(), 500);
+        }
+        $voucher = Voucher::find($request->voucher_id);
+        $voucher->voucher_title = $request->voucher_title;
+        $voucher->voucher_price = $request->voucher_price;
+        $voucher->save();
+        return 'Voucher Updated successfully';
     }
 
     /**
