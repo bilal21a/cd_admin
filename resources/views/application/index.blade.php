@@ -105,5 +105,8 @@
     </script>
     @include('application.modal.js.coupon_edit_modal_js')
 
-
+    <script>
+        var delete_voucher_url = '{{ route('vouchers.destroy', ':id') }}'
+    </script>
+    @include('common.js.voucher_delete')
 @endsection
