@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Application;
+use App\Job;
 use App\Jobs;
 use App\User;
 use Illuminate\Http\Request;
@@ -71,7 +72,10 @@ class ApplicationController extends Controller
      */
     public function show($id)
     {
-        //
+        $user = Application::find($id);
+        // dd($user);
+        return view('common.modal.view_modal_data', compact('user'));
+
     }
 
     /**
@@ -83,10 +87,9 @@ class ApplicationController extends Controller
     public function edit($id)
     {
         $user = Application::find($id);
-        $jobs = Jobs::select('id', 'job_title')->get();
+        $jobs = Job::select('id', 'job_title')->get();
         return view('application.modal.edit', compact('user', 'jobs'));
     }
-
     /**
      * Update the specified resource in storage.
      *

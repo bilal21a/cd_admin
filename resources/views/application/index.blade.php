@@ -29,6 +29,7 @@
     @include('common.modal.add_edit_modal')
     @include('common.modal.coupon_model')
     @include('common.modal.coupon_edit_modal')
+    @include('common.modal.application_view')
 @endsection
 
 @section('js_after')
@@ -48,6 +49,11 @@
         var edit_title = "Edit User"
     </script>
     @include('common.js.edit_data')
+    {{-- view --}}
+    <script>
+        var view_form_url = '{{ route('applications.show', ':id') }}'
+    </script>
+    @include('common.js.application_view')
 
 
     {{-- **Delete Data** --}}
@@ -55,6 +61,7 @@
         var delete_data_url = '{{ route('applications.destroy', ':id') }}'
     </script>
     @include('common.js.delete_data')
+
     <script>
         function VoucherModel(company_id) {
             $('#addVoucherModal').modal('show')
