@@ -19,13 +19,13 @@ class CreateApplicationsTable extends Migration
             $table->string('applicant_email')->nullable();
             $table->string('applicant_phone')->nullable();
             $table->longText('applicant_address')->nullable();
-            $table->integer('applicant_passport_number')->nullable();
+            $table->longText('applicant_passport_number')->nullable();
             $table->string('applicant_image')->nullable();
             $table->string('applicant_dob')->nullable();
-            $table->integer('job_id')->nullable();
-            $table->integer('applicant_uci')->nullable();
-            $table->integer('applicant_ref_no')->nullable();
-            $table->integer('applicant_tracking_no')->nullable();
+            $table->longText('job_id')->nullable();
+            $table->longText('applicant_uci')->nullable();
+            $table->longText('applicant_ref_no')->nullable();
+            $table->longText('applicant_tracking_no')->nullable();
             $table->string('applicant_due_date')->nullable();
             $table->string('applicant_payment_status')->nullable();
             $table->timestamps();

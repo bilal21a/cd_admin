@@ -22,12 +22,9 @@
                         <div>
                             <div class="mb-5">
                                 <h1 class="display-3 text-white">Unlock Your Future </h1>
-                                <h1 class="display-3 text-white">with Our Library Management System</h1>
+                                <h1 class="display-3 text-white">with Our ADMIN</h1>
                             </div>
-                            <p class="h6 text-white lh-1-5 mb-5">
-                                "Education is the passport to the future, for tomorrow belongs to those who prepare for it
-                                today." <br> - Malcolm X
-                            </p>
+
                         </div>
                     </div>
                 </div>

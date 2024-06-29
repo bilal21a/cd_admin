@@ -66,6 +66,12 @@
                     </a>
                 </li>
                 <li>
+                    <a class="" href="{{ route('jobs.index') }}">
+                        <i data-acorn-icon="office" class="d-inline-block"></i>
+                        <span class="label">Jobs</span>
+                    </a>
+                </li>
+                <li>
                     <a class="" href="{{ route('logout') }}">
                         <i data-acorn-icon="logout" class="d-inline-block"></i>
                         <span class="label">Logout</span>
