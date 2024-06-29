@@ -2,7 +2,7 @@
 @section('css_after')
     <style>
         .fixed-background {
-            background: url("{{ asset('acron/img/background/background-blue.webp') }}") no-repeat center center fixed;
+            background: url("{{ asset('acron/img/background/cd_jobs.jpg') }}") no-repeat center center fixed;
             background-size: cover;
         }
 
@@ -22,8 +22,8 @@
                     <div class="w-100 w-lg-75 ">
                         <div>
                             <div class="mb-5">
-                                <h1 class="display-3 text-white">Unlock Your Future </h1>
-                                <h1 class="display-3 text-white">with Our ADMIN</h1>
+                                {{-- <h1 class="display-3 text-white">Unlock Your Future </h1>
+                                <h1 class="display-3 text-white">with Our ADMIN</h1> --}}
                             </div>
 
                         </div>
