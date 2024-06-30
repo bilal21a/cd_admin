@@ -27,7 +27,7 @@ class Controller extends BaseController
             </svg>
             <span class="d-none d-xxl-inline-block">Edit</span>
         </button>
-        <button class="btn btn-sm btn-icon btn-icon-start btn-outline-primary ms-1" onclick="deleteData(' . $id . ')" type="button">
+        <button class="btn btn-sm btn-icon btn-icon-start btn-outline-danger ms-1" onclick="deleteData(' . $id . ')" type="button">
             <svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 20 20" fill="none"
                 stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"
                 class="acorn-icons acorn-icons-bin undefined">

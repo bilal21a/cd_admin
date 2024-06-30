@@ -2,7 +2,7 @@
 @section('css_after')
     <style>
         .fixed-background {
-            background: url("{{ asset('acron/img/background/cd_jobs.jpg') }}") no-repeat center center fixed;
+            background: url("{{ asset('acron/img/background/cd_jobs.png') }}") no-repeat center center fixed;
             background-size: cover;
         }
 
