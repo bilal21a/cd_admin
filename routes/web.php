@@ -42,9 +42,10 @@ Route::middleware(['auth'])->group(function () {
         Route::get('get_users', [UserController::class, 'get_data'])->name('get_users');
         Route::resource('applications', 'ApplicationController');
         Route::get('get_applications', [ApplicationController::class, 'get_data'])->name('get_applications');
-        Route::resource('vouchers', 'VoucherController');
         Route::resource('jobs', 'JobController');
         Route::get('get_jobs', [JobController::class, 'get_data'])->name('get_jobs');
+        Route::resource('vouchers', 'VoucherController');
+        Route::resource('insurance', 'InsuranceController');
     // });
 });
 
