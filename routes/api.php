@@ -20,3 +20,4 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
 Route::post('/register', 'RegisterController@register')->name('register');
 Route::get('/common/jobs', 'CommonController@get_jobs');
 
+Route::get('/search_visa_status', 'VisaController@search_visa_status');
