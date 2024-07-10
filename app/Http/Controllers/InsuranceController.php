@@ -107,7 +107,7 @@ class InsuranceController extends Controller
         $insurance->insurance_fee = $request->insurance_fee;
         $insurance->insurance_payment_status = $applicant_payment_status;
         $insurance->save();
-        return 'Insurance created successfully';
+        return 'Insurance Updated successfully';
     }
 
     /**

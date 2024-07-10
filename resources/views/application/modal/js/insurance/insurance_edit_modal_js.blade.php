@@ -42,7 +42,7 @@
                 console.log('response: ', response);
                 singleDeleteDraw._fnDraw();
                 myalert("success", response, 5000);
-                $('#myModalVoucherEdit').modal('hide')
+                $('#myModalInsuranceEdit').modal('hide')
             },
             error: function(xhr, status, error) {
                 console.log('error: ', xhr.responseJSON);

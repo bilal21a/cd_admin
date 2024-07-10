@@ -7,7 +7,7 @@
             </div>
             <div class="modal-body">
                 <input type="hidden" id="company_id" value="">
-                <button class="btn btn-icon btn-icon-start btn-primary mb-4" id="disabled_btn" onclick="AddnsuranceModel(document.getElementById('company_id').value)" type="button"
+                <button class="btn btn-icon btn-icon-start btn-primary mb-4"  onclick="AddnsuranceModel(document.getElementById('company_id').value)" type="button"
                     data-bs-toggle="modal" data-bs-target="#myModal">
                     <i data-acorn-icon="plus"></i>
                     <span>Add New Insurance</span>

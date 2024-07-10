@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Application;
+use App\Insurance;
 use App\Job;
 use App\Jobs;
 use App\User;
@@ -30,7 +31,8 @@ class ApplicationController extends Controller
         $applications = Application::get();
         return DataTables::of($applications)
         ->addColumn('action', function ($application) {
-            return $this->for_application($application->id);
+            $insurance =Insurance::find($application->id);
+            return $this->for_application($application->id,$insurance==null? 'AddnsuranceModel':'editInsuranceModel');
         })
         ->addColumn('html_status', function ($user) {
             if ($user->applicant_payment_status == 1) {

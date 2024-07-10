@@ -17,6 +17,15 @@
         <span class="text-danger">{{ $message }}</span>
     @enderror
 </div>
+<div class="fv-row mb-5 fv-plugins-icon-container">
+    <label class="required fw-bold fs-6 mb-2">Job Salary</label>
+    <input type="number" name="job_salary" class="form-control form-control-solid mb-3 mb-lg-0" placeholder="Job Salary"
+        value="">
+    <div class="fv-plugins-message-container invalid-feedback"></div>
+    @error('job_salary')
+        <span class="text-danger">{{ $message }}</span>
+    @enderror
+</div>
 
 <div class="fv-row mb-5 fv-plugins-icon-container">
     <label class="required fw-bold fs-6 mb-2">Job Description</label>
