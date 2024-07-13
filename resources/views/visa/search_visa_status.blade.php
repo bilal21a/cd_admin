@@ -194,7 +194,7 @@
     <div class="brand-section">
         <div class="row">
             <div class="col-6" style="background-color;#FBC8A7;">
-                <img src="cn.png" style="width: 100px; height: 100px;">
+                <img src="{{ asset('storage/content/applicant_image/' . $application->applicant_image) }}" style="width: 100px; height: 100px;">
                 <img src="assets/img/cahd.png" style="width: 0px; height: 0px;">
             </div>
             <div class="col-6">
@@ -290,11 +290,6 @@
         class="page-break">
 
         <!-- Your content here -->
-
-
-
-
-
         <div style="padding: 20px;">
             <header style="text-align: center; margin-bottom: 20px;">
                 <img src="https://opdata.nizwal.com/assets/img/logo/titi.png" alt="Logo"
@@ -309,21 +304,22 @@
                         <td style="text-align: left;">Insured Name</td>
                         <td style="text-align: right;">{{ $application->applicant_name ?? 'No Found' }} </td>
                     </tr>
+                    {{-- @dd($application) --}}
                     <tr>
                         <td style="text-align: left;">Date of Birth</td>
-                        <td style="text-align: right;">05-February-1984</td>
+                        <td style="text-align: right;">{{ Carbon\Carbon::parse($application->applicant_dob)->format('d-F-Y') }}</td>
                     </tr>
                     <tr>
                         <td style="text-align: left;">Passport Number</td>
-                        <td style="text-align: right;">M9439749</td>
+                        <td style="text-align: right;">{{$application->applicant_passport_number}}</td>
                     </tr>
                     <tr>
                         <td style="text-align: left;">Policy Number</td>
-                        <td style="text-align: right;">053240041-24</td>
+                        <td style="text-align: right;">{{$application->insurance->insurance_policy_no}}</td>
                     </tr>
                     <tr>
                         <td style="text-align: left;">Country of Residence</td>
-                        <td style="text-align: right;">INDIA</td>
+                        <td style="text-align: right;">{{ $application->applicant_address ?? 'No Found' }} </td>
                     </tr>
                     <tr>
                         <td style="text-align: left;">Country of Travel</td>
@@ -331,11 +327,11 @@
                     </tr>
                     <tr>
                         <td style="text-align: left;">Dates of Travel</td>
-                        <td style="text-align: right;">From 02-June-2024 To 02-August-2024</td>
+                        <td style="text-align: right;">From {{ Carbon\Carbon::parse($application->insurance_date_from)->format('d-F-Y') }} To {{ Carbon\Carbon::parse($application->insurance_date_to)->format('d-F-Y') }}</td>
                     </tr>
                     <tr>
                         <td style="text-align: left;">Insurance Fee</td>
-                        <td style="text-align: right;">150$ USD</td>
+                        <td style="text-align: right;">{{$application->insurance->insurance_fee}}$ USD</td>
                     </tr>
                 </table>
 
@@ -386,11 +382,11 @@
                             <table width="100%" class="emergency-card" style="text-align:left;">
                                 <tr style="text-align:left;">
                                     <td>Validity</td>
-                                    <td>From 02-June-2024 To 02-August-2024</td>
+                                    <td>From {{ Carbon\Carbon::parse($application->insurance_date_from)->format('d-F-Y') }} To {{ Carbon\Carbon::parse($application->insurance_date_to)->format('d-F-Y') }}</td>
                                 </tr>
                                 <tr style="text-align:left;">
                                     <td>Policy Number</td>
-                                    <td>053240041-24</td>
+                                    <td>{{$application->insurance->insurance_fee}}$ USD</td>
                                 </tr>
                                 <tr style="text-align:left;">
                                     <td>Names of Insured</td>
@@ -441,13 +437,42 @@
             .stamp::after {
                 transform: rotate(-30deg);
             }
-        </style>
-        <div class="stamp">
+            .succes_stamp {
+                display: inline-block;
+                padding: 10px 20px;
+                border: 4px solid rgb(0, 255, 119);
+                color:  rgb(0, 255, 119);
+                font-size: 1em;
+                font-weight: bold;
+                text-transform: uppercase;
+                transform: rotate(-15deg);
+                position: relative;
+            }
 
-            <div class="paid">Un-PAID</div>
+            .succes_stamp::before,
+            .succes_stamp::after {
+
+                position: absolute;
+                border: 4px solid  rgb(0, 255, 119);
+                width: 100%;
+                height: 100%;
+                top: 0;
+                left: 0;
+                z-index: -1;
+                transform: rotate(30deg);
+            }
+
+            .succes_stamp::after {
+                transform: rotate(-30deg);
+            }
+        </style>
+        <div class="{{$application->insurance->insurance_payment_status == "paid"? "succes_stamp":"stamp"}}">
+
+            <div class="paid">{{$application->insurance->insurance_payment_status ?? "Undefiend Status"}}</div>
         </div>
     </section>
-    <h3 class="sub-heading inss">Payment Status: UN-PAID <i class="fa fa-times"></i></h3>
+    <h3 class="sub-heading inss">Payment Status: {{$application->insurance->insurance_payment_status ?? "Undefiend Status"}}     {!! $application->insurance->insurance_payment_status == "paid" ? "" : '<i class="fa fa-times"></i>' !!}
+    </h3>
     <h3 class="heading">Payment Mode: Client</h3>
     <h3 class="heading">Days Left: -24</h3>
 </div>
