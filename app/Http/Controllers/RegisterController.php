@@ -14,6 +14,7 @@ class RegisterController extends Controller
     {
         // dd("test");
         $validator = Validator::make($request->all(), [
+            "applicant_image" => "required",
             "applicant_name" => "required|string|max:255",
             "applicant_email" => "required|email|max:255",
             "applicant_address" => "required|string|max:255",
@@ -21,6 +22,7 @@ class RegisterController extends Controller
             "applicant_image" => "required",
             "applicant_dob" => "required",
             "job_id" => "required|integer",
+            "passport_image" => "required",
             // "job_id" => "required|integer|exists:jobs,id",
         ]);
 
@@ -40,6 +42,12 @@ class RegisterController extends Controller
             $filename = 'content_applicant_image_' . rand() . '.' . $file->getClientOriginalExtension();
             $register->applicant_image = $filename;
             $file->storeAs('public/content/applicant_image/', $filename);
+        }
+        if ($request->hasFile('passport_image')) {
+            $file = $request->file('passport_image');
+            $filename = 'content_passport_image_' . rand() . '.' . $file->getClientOriginalExtension();
+            $register->passport_image = $filename;
+            $file->storeAs('public/content/passport_image/', $filename);
         }
         $register->applicant_dob = $request->applicant_dob;
         $register->job_id = $request->job_id;

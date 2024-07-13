@@ -3,14 +3,10 @@
 namespace App\Http\Controllers;
 
 use App\Job;
-use App\Jobs;
-use App\User;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Facades\Storage;
 use Yajra\DataTables\Facades\DataTables;
 use Illuminate\Support\Facades\Validator;
-use Illuminate\Validation\Rule;
-use Spatie\Permission\Models\Role;
 
 class JobController extends Controller
 {
@@ -66,7 +62,18 @@ class JobController extends Controller
         $job = new Job();
         $job->job_title = $request->job_title;
         $job->job_salary = $request->job_salary;
+        $job->working_hours = $request->working_hours;
+        $job->food_provided = $request->food_provided;
+        $job->accommodation_provided = $request->accommodation_provided;
+        $job->contract_period = $request->contract_period;
+        $job->probation_period = $request->probation_period;
         $job->job_desc = $request->job_desc;
+        if ($request->hasFile('job_img')) {
+            $file = $request->file('job_img');
+            $filename = 'content_job_img_' . rand() . '.' . $file->getClientOriginalExtension();
+            $job->job_img = $filename;
+            $file->storeAs('public/job_media/job_img/', $filename);
+        }
         $job->save();
         return 'Success';
     }
@@ -108,16 +115,43 @@ class JobController extends Controller
             [
                 'job_title' => 'required',
                 'job_salary' => 'required',
+                'working_hours' => 'required',
+                'food_provided' => 'required',
+                'accommodation_provided' => 'required',
+                'contract_period' => 'required',
+                'probation_period' => 'required',
+                'job_img' => 'required',
                 'job_desc' => 'required',
             ],
         );
         if ($validate->fails()) {
             return response()->json($validate->errors()->first(), 500);
         }
-        $job = Job::find($request->id);
+        $job = Job::find($id);
         $job->job_title = $request->job_title;
         $job->job_salary = $request->job_salary;
+        $job->working_hours = $request->working_hours;
+        $job->food_provided = $request->food_provided;
+        $job->accommodation_provided = $request->accommodation_provided;
+        $job->contract_period = $request->contract_period;
+        $job->probation_period = $request->probation_period;
         $job->job_desc = $request->job_desc;
+        // dd(c);
+
+        if ($request->hasFile('job_img')) {
+            // Check if the job has an existing image
+            if ($job->job_img) {
+                // Delete the existing image from the public storage
+                Storage::delete('public/job_media/job_img/' . $job->job_img);
+            }
+
+            // Handle the new file upload
+            $file = $request->file('job_img');
+            $filename = 'content_job_img_' . rand() . '.' . $file->getClientOriginalExtension();
+            $job->job_img = $filename;
+            $file->storeAs('public/job_media/job_img/', $filename);
+        }
+
         $job->save();
         return 'Job Updated Successfully';
     }
