@@ -10,4 +10,12 @@ class Application extends Model
     {
         return $this->belongsTo(Job::class);
     }
+    public function vouchers()
+    {
+        return $this->hasMany(Voucher::class);
+    }
+    public function insurance()
+    {
+        return $this->hasOne(Insurance::class);
+    }
 }

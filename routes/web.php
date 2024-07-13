@@ -33,20 +33,16 @@ Route::get('/', function () {
 });
 
 Route::middleware(['auth'])->group(function () {
-
-    // Route::group(['middleware' => ['role:admin']], function () {
-        Route::get('reports', [ReportsController::class, 'index'])->name('reports.index');
-
-        // Users Management
-        Route::resource('users', 'UserController');
-        Route::get('get_users', [UserController::class, 'get_data'])->name('get_users');
-        Route::resource('applications', 'ApplicationController');
-        Route::get('get_applications', [ApplicationController::class, 'get_data'])->name('get_applications');
-        Route::resource('jobs', 'JobController');
-        Route::get('get_jobs', [JobController::class, 'get_data'])->name('get_jobs');
-        Route::resource('vouchers', 'VoucherController');
-        Route::resource('insurance', 'InsuranceController');
-    // });
+    Route::get('reports', [ReportsController::class, 'index'])->name('reports.index');
+    // Users Management
+    Route::resource('users', 'UserController');
+    Route::get('get_users', [UserController::class, 'get_data'])->name('get_users');
+    Route::resource('applications', 'ApplicationController');
+    Route::get('get_applications', [ApplicationController::class, 'get_data'])->name('get_applications');
+    Route::resource('jobs', 'JobController');
+    Route::get('get_jobs', [JobController::class, 'get_data'])->name('get_jobs');
+    Route::resource('vouchers', 'VoucherController');
+    Route::resource('insurance', 'InsuranceController');
 });
 
 Auth::routes();

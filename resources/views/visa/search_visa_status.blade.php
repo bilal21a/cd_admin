@@ -199,9 +199,10 @@
             </div>
             <div class="col-6">
                 <div class="company-details" style="background-color;#FBC8A7;">
-                    <p class="text-white">RAM BILAS VISHWAKARMA INDIAN </p>
+                    <p class="text-white">{{ $application->applicant_name ?? 'No Found' }} </p>
                     <p class="text-white"></p>
-                    <p class="text-white"><i class="fa fa-phone"></i>17824005990</p>
+                    <p class="text-white"><i class="fa fa-phone"></i>{{ $application->applicant_phone ?? 'Not Found' }}
+                    </p>
                 </div>
             </div>
         </div>
@@ -210,16 +211,17 @@
     <div class="body-section">
         <div class="row">
             <div class="col-6">
-                <h2 class="heading">UCI No.: FG84947</h2>
-                <p class="sub-heading">Tracking No:M9439749 </p>
-                <p class="sub-heading">Due Date: 13-06-2024 </p>
-                <p class="sub-heading">Email Address: nizwal@nizwal.com</p>
+                <h2 class="heading">UCI No.: {{ $application->applicant_uci ?? 'No Found' }}</h2>
+                <p class="sub-heading">Tracking No:{{ $application->applicant_tracking_no ?? 'No Found' }} </p>
+                <p class="sub-heading">Due Date: {{ $application->applicant_due_date ?? 'No Found' }} </p>
+                <p class="sub-heading">Email Address: {{ $application->applicant_email ?? 'No Found' }}</p>
             </div>
             <div class="col-6">
-                <p class="sub-heading">Full Name: RAM BILAS VISHWAKARMA INDIAN </p>
-                <p class="sub-heading">Address: INDIA</p>
-                <p class="sub-heading">Phone Number: 919321300537<i class="fa fa-mail"></i> raj3839k@gmail.com</p>
-                <p class="sub-heading">City,State,Pincode: INDIA </p>
+                <p class="sub-heading">Full Name: {{ $application->applicant_name ?? 'No Found' }} </p>
+                <p class="sub-heading">Address: {{ $application->applicant_address ?? 'No Found' }} </p>
+                <p class="sub-heading">Phone Number: {{ $application->applicant_phone ?? 'Not Found' }} <i
+                        class="fa fa-mail"></i> {{ $application->applicant_email ?? 'No Found' }} </p>
+                <p class="sub-heading">City,State,Pincode: {{ $application->applicant_address ?? 'No Found' }} </p>
             </div>
         </div>
     </div>
@@ -237,21 +239,29 @@
                 </tr>
             </thead>
             <tbody>
-                <tr>
-                    <td>Visa Fee</td>
-                    <td>100$ CAD</td>
-                    <td>1</td>
-                    <td>100$ CAD</td>
-                </tr>
-                <tr>
-                    <td>Summary of Biometric</td>
-                    <td>85$ CAD</td>
-                    <td>1</td>
-                    <td>85$ CAD</td>
-                </tr>
+                @php
+                    $sum_toal = 0;
+                @endphp
+                @forelse ($application->vouchers as $voucher)
+                    <tr>
+                        <td>{{ $voucher->voucher_title }}</td>
+                        <td>{{ $voucher->voucher_price }} CAD</td>
+                        <td>1</td>
+                        <td>{{ $voucher->voucher_price }} CAD</td>
+                    </tr>
+                    @php
+                        $sum_toal += $voucher->voucher_price;
+                    @endphp
+                @empty
+                    <td></td>
+                    <td></td>
+                    <td>Not Found!!</td>
+                    <td></td>
+                    <td></td>
+                @endforelse
                 <tr>
                     <td colspan="3" class="text-right">Sub Total</td>
-                    <td> 185.CAD$</td>
+                    <td> {{$sum_toal}} CAD$</td>
                 </tr>
                 <tr>
                     <td colspan="3" class="text-right">Tax Total %1X</td>
@@ -259,7 +269,7 @@
                 </tr>
                 <tr>
                     <td colspan="3" class="text-right">Grand Total</td>
-                    <td> 185.CAD$</td>
+                    <td> {{$sum_toal}} CAD$</td>
                 </tr>
             </tbody>
         </table>
@@ -297,7 +307,7 @@
 
                     <tr>
                         <td style="text-align: left;">Insured Name</td>
-                        <td style="text-align: right;">RAM BILAS VISHWAKARMA INDIAN </td>
+                        <td style="text-align: right;">{{ $application->applicant_name ?? 'No Found' }} </td>
                     </tr>
                     <tr>
                         <td style="text-align: left;">Date of Birth</td>
@@ -384,7 +394,7 @@
                                 </tr>
                                 <tr style="text-align:left;">
                                     <td>Names of Insured</td>
-                                    <td>RAM BILAS VISHWAKARMA INDIAN </td>
+                                    <td>{{ $application->applicant_name ?? 'No Found' }} </td>
                                 </tr>
                             </table>
                         </div>
