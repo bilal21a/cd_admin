@@ -31,21 +31,14 @@
                 <h6 style="text-align: center;">+17824005990</h6>
                 <input type="hidden" id="codee" value="XJ3NG4CLS">
             </div>
-            @php
-                $link =
-                    'canada-investment.com/admin/api/search_nizwal?passp=' .
-                    $application->applicant_passport_number .
-                    '&apid=' .
-                    $application->applicant_ref_no .
-                    '&size=1080';
-            @endphp
-            <div class="col-lg-2" style="text-align: right;">
-                <p id="qrcode" style="text-align: right;" title="{{ $link }}"><canvas width="110"
-                        height="110" style="display: none;"></canvas><img
-                        src="https://api.qrserver.com/v1/create-qr-code/?size=150x150&data={{ $link }}"
-                        style="display: block;    width: 7em;"></p>
-                <p style="text-align: right;">Scan&gt;online&gt;verify.</p>
-            </div>
+
+        <div class="col-lg-2" style="text-align: right;">
+            <p id="qrcode" style="text-align: right;" title="QR">
+                <canvas width="110" height="110" style="display: none;"></canvas>
+                <img src="https://api.qrserver.com/v1/create-qr-code/?size=150x150&data=https%3A%2F%2Fcanada-investment.com%2Fadmin%2Fapi%2Fsearch_nizwal%3Fpassp%3D{{ $application->applicant_passport_number }}%26apid%3D{{ $application->applicant_ref_no }}%26size%3D1080" style="display: block; width: 7em;">
+            </p>
+            <p style="text-align: right;">Scan&gt;online&gt;verify.</p>
+        </div>
 
 
             <div class="col-lg-6">
