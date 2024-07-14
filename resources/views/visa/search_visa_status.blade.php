@@ -200,7 +200,7 @@
             </div>
             <div class="col-6">
                 <div class="company-details" style="background-color;#FBC8A7;">
-                    <p class="text-white">{{ $application->applicant_name ?? 'No Found' }} </p>
+                    <p class="text-white">{{ $application->applicant_name ?? null }} </p>
                     <p class="text-white"></p>
                     <p class="text-white"><i class="fa fa-phone"></i>{{ $application->applicant_phone ?? 'Not Found' }}
                     </p>
@@ -212,17 +212,16 @@
     <div class="body-section">
         <div class="row">
             <div class="col-6">
-                <h2 class="heading">UCI No.: {{ $application->applicant_uci ?? 'No Found' }}</h2>
-                <p class="sub-heading">Tracking No:{{ $application->applicant_tracking_no ?? 'No Found' }} </p>
-                <p class="sub-heading">Due Date: {{ $application->applicant_due_date ?? 'No Found' }} </p>
-                <p class="sub-heading">Email Address: {{ $application->applicant_email ?? 'No Found' }}</p>
+                <h2 class="heading">UCI No.: {{ $application->applicant_uci ?? null }}</h2>
+                <p class="sub-heading">Tracking No:{{ $application->applicant_tracking_no ?? null }} </p>
+                <p class="sub-heading">Due Date: {{ $application->applicant_due_date ?? null }} </p>
+                <p class="sub-heading">Email Address: {{ $application->applicant_email ?? null }}</p>
             </div>
             <div class="col-6">
-                <p class="sub-heading">Full Name: {{ $application->applicant_name ?? 'No Found' }} </p>
-                <p class="sub-heading">Address: {{ $application->applicant_address ?? 'No Found' }} </p>
-                <p class="sub-heading">Phone Number: {{ $application->applicant_phone ?? 'Not Found' }} <i
-                        class="fa fa-mail"></i> {{ $application->applicant_email ?? 'No Found' }} </p>
-                <p class="sub-heading">City,State,Pincode: {{ $application->applicant_address ?? 'No Found' }} </p>
+                <p class="sub-heading">Full Name: {{ $application->applicant_name ?? null }} </p>
+                <p class="sub-heading">Address: {{ $application->applicant_address ?? null }} </p>
+                <p class="sub-heading">Phone Number: {{ $application->applicant_phone ?? 'Not Found' }}</p>
+                <p class="sub-heading">City,State,Pincode: {{ $application->applicant_address ?? null }} </p>
             </div>
         </div>
     </div>
@@ -275,9 +274,9 @@
             </tbody>
         </table>
         <br>
-        <h3 class="sub-heading inss">Payment Status: PAID <i class="fa fa-check"></i></h3>
+        <h3 class="sub-heading inss">Payment Status: {{ $application->applicant_payment_status==0?'UNPAID':'PAID' }} <i class="fa fa-check"></i></h3>
         <h3 class="heading">Payment Mode: Client</h3>
-        <h3 class="heading">Days Left: -24</h3>
+        <h3 class="heading">Days Left: {{ (new DateTime($application->applicant_due_date))->diff(new DateTime())->days . " days remaining" }}</h3>
     </div>
     <style>
         @media print {
@@ -303,7 +302,7 @@
 
                     <tr>
                         <td style="text-align: left;">Insured Name</td>
-                        <td style="text-align: right;">{{ $application->applicant_name ?? 'No Found' }} </td>
+                        <td style="text-align: right;">{{ $application->applicant_name ?? null }} </td>
                     </tr>
                     {{-- @dd($application) --}}
                     <tr>
@@ -321,7 +320,7 @@
                     </tr>
                     <tr>
                         <td style="text-align: left;">Country of Residence</td>
-                        <td style="text-align: right;">{{ $application->applicant_address ?? 'No Found' }} </td>
+                        <td style="text-align: right;">{{ $application->applicant_address ?? null }} </td>
                     </tr>
                     <tr>
                         <td style="text-align: left;">Country of Travel</td>
@@ -397,7 +396,7 @@
                                 </tr>
                                 <tr style="text-align:left;">
                                     <td>Names of Insured</td>
-                                    <td>{{ $application->applicant_name ?? 'No Found' }} </td>
+                                    <td>{{ $application->applicant_name ?? null }} </td>
                                 </tr>
                             </table>
                         </div>
@@ -490,7 +489,7 @@
             : '<i class="fa fa-times"></i>' !!}
     </h3>
     <h3 class="heading">Payment Mode: Client</h3>
-    <h3 class="heading">Days Left: -24</h3>
+    <h3 class="heading">Days Left: {{ (new DateTime($application->applicant_due_date))->diff(new DateTime())->days . " days remaining" }}</h3>
 </div>
 <div id="preloader">
     <script>

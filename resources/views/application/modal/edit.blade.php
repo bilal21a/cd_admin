@@ -20,6 +20,15 @@
         <span class="text-danger">{{ $message }}</span>
     @enderror
 </div>
+<div class="fv-row mb-5 fv-plugins-icon-container">
+    <label class="required fw-bold fs-6 mb-2">Due Date</label>
+    <input type="date" name="applicant_due_date" class="form-control form-control-solid mb-3 mb-lg-0"
+        value="{{ $user->applicant_due_date }}">
+    <div class="fv-plugins-message-container invalid-feedback"></div>
+    @error('applicant_due_date')
+        <span class="text-danger">{{ $message }}</span>
+    @enderror
+</div>
 
 <div class="mb-5">
     <label class="required fw-bold fs-6 mb-2">Role</label>

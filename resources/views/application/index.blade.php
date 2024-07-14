@@ -51,7 +51,7 @@
     <script>
         var edit_form_url = '{{ route('applications.edit', ':id') }}'
         var update_data_url = '{{ route('applications.update', ':id') }}'
-        var edit_title = "Edit User"
+        var edit_title = "Edit Applicant"
     </script>
     @include('common.js.edit_data')
     {{-- view --}}

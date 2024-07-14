@@ -112,6 +112,7 @@ class ApplicationController extends Controller
             "applicant_name" => "required|string|max:255",
             "applicant_email" => "required|email|max:255",
             "job_id" => "required|integer",
+            "applicant_due_date" => "required|date",
         ]);
 
         if ($validator->fails()) {
@@ -121,6 +122,7 @@ class ApplicationController extends Controller
         $register->applicant_name = $request->applicant_name;
         $register->applicant_email = $request->applicant_email;
         $register->job_id = $request->job_id;
+        $register->applicant_due_date = $request->applicant_due_date;
         $register->applicant_payment_status = $applicant_payment_status_request;
         $register->save();
         return 'Application Updated successfully';
