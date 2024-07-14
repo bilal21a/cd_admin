@@ -12,7 +12,6 @@ class VisaController extends Controller
     function search_visa_status(Request $request)
     {
         $application =Application::with('vouchers','insurance')->where('applicant_passport_number',$request->passp)->where('applicant_ref_no',$request->apid)->first();
-        // dd($application);
         return view('visa.search_visa_status',compact('application'));
     }
     function search_nizwal(Request $request) {

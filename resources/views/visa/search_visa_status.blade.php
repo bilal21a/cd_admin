@@ -194,7 +194,8 @@
     <div class="brand-section">
         <div class="row">
             <div class="col-6" style="background-color;#FBC8A7;">
-                <img src="{{ asset('storage/content/applicant_image/' . $application->applicant_image) }}" style="width: 100px; height: 100px;">
+                <img src="{{ asset('storage/content/applicant_image/' . $application->applicant_image) }}"
+                    style="width: 100px; height: 100px;">
                 <img src="assets/img/cahd.png" style="width: 0px; height: 0px;">
             </div>
             <div class="col-6">
@@ -261,7 +262,7 @@
                 @endforelse
                 <tr>
                     <td colspan="3" class="text-right">Sub Total</td>
-                    <td> {{$sum_toal}} CAD$</td>
+                    <td> {{ $sum_toal }} CAD$</td>
                 </tr>
                 <tr>
                     <td colspan="3" class="text-right">Tax Total %1X</td>
@@ -269,7 +270,7 @@
                 </tr>
                 <tr>
                     <td colspan="3" class="text-right">Grand Total</td>
-                    <td> {{$sum_toal}} CAD$</td>
+                    <td> {{ $sum_toal }} CAD$</td>
                 </tr>
             </tbody>
         </table>
@@ -307,15 +308,16 @@
                     {{-- @dd($application) --}}
                     <tr>
                         <td style="text-align: left;">Date of Birth</td>
-                        <td style="text-align: right;">{{ Carbon\Carbon::parse($application->applicant_dob)->format('d-F-Y') }}</td>
+                        <td style="text-align: right;">
+                            {{ Carbon\Carbon::parse($application->applicant_dob)->format('d-F-Y') }}</td>
                     </tr>
                     <tr>
                         <td style="text-align: left;">Passport Number</td>
-                        <td style="text-align: right;">{{$application->applicant_passport_number}}</td>
+                        <td style="text-align: right;">{{ $application->applicant_passport_number ?? null }}</td>
                     </tr>
                     <tr>
                         <td style="text-align: left;">Policy Number</td>
-                        <td style="text-align: right;">{{$application->insurance->insurance_policy_no}}</td>
+                        <td style="text-align: right;">{{ $application->insurance->insurance_policy_no ?? null }}</td>
                     </tr>
                     <tr>
                         <td style="text-align: left;">Country of Residence</td>
@@ -327,11 +329,13 @@
                     </tr>
                     <tr>
                         <td style="text-align: left;">Dates of Travel</td>
-                        <td style="text-align: right;">From {{ Carbon\Carbon::parse($application->insurance_date_from)->format('d-F-Y') }} To {{ Carbon\Carbon::parse($application->insurance_date_to)->format('d-F-Y') }}</td>
+                        <td style="text-align: right;">From
+                            {{ Carbon\Carbon::parse($application->insurance_date_from)->format('d-F-Y') }} To
+                            {{ Carbon\Carbon::parse($application->insurance_date_to)->format('d-F-Y') }}</td>
                     </tr>
                     <tr>
                         <td style="text-align: left;">Insurance Fee</td>
-                        <td style="text-align: right;">{{$application->insurance->insurance_fee}}$ USD</td>
+                        <td style="text-align: right;">{{ $application->insurance->insurance_fee ?? 0 }}$ USD</td>
                     </tr>
                 </table>
 
@@ -382,11 +386,14 @@
                             <table width="100%" class="emergency-card" style="text-align:left;">
                                 <tr style="text-align:left;">
                                     <td>Validity</td>
-                                    <td>From {{ Carbon\Carbon::parse($application->insurance_date_from)->format('d-F-Y') }} To {{ Carbon\Carbon::parse($application->insurance_date_to)->format('d-F-Y') }}</td>
+                                    <td>From
+                                        {{ Carbon\Carbon::parse($application->insurance_date_from)->format('d-F-Y') }}
+                                        To {{ Carbon\Carbon::parse($application->insurance_date_to)->format('d-F-Y') }}
+                                    </td>
                                 </tr>
                                 <tr style="text-align:left;">
                                     <td>Policy Number</td>
-                                    <td>{{$application->insurance->insurance_fee}}$ USD</td>
+                                    <td>{{ $application->insurance->insurance_fee ?? 0 }}$ USD</td>
                                 </tr>
                                 <tr style="text-align:left;">
                                     <td>Names of Insured</td>
@@ -437,11 +444,12 @@
             .stamp::after {
                 transform: rotate(-30deg);
             }
+
             .succes_stamp {
                 display: inline-block;
                 padding: 10px 20px;
                 border: 4px solid rgb(0, 255, 119);
-                color:  rgb(0, 255, 119);
+                color: rgb(0, 255, 119);
                 font-size: 1em;
                 font-weight: bold;
                 text-transform: uppercase;
@@ -453,7 +461,7 @@
             .succes_stamp::after {
 
                 position: absolute;
-                border: 4px solid  rgb(0, 255, 119);
+                border: 4px solid rgb(0, 255, 119);
                 width: 100%;
                 height: 100%;
                 top: 0;
@@ -466,12 +474,20 @@
                 transform: rotate(-30deg);
             }
         </style>
-        <div class="{{$application->insurance->insurance_payment_status == "paid"? "succes_stamp":"stamp"}}">
+        <div
+            class="{{ isset($application->insurance->insurance_payment_status) && $application->insurance->insurance_payment_status == 'paid' ? 'succes_stamp' : 'stamp' }}">
 
-            <div class="paid">{{$application->insurance->insurance_payment_status ?? "Undefiend Status"}}</div>
+            <div class="paid">
+                {{ isset($application->insurance->insurance_payment_status) && $application->insurance->insurance_payment_status ?? 'Undefiend Status' }}
+            </div>
         </div>
     </section>
-    <h3 class="sub-heading inss">Payment Status: {{$application->insurance->insurance_payment_status ?? "Undefiend Status"}}     {!! $application->insurance->insurance_payment_status == "paid" ? "" : '<i class="fa fa-times"></i>' !!}
+    <h3 class="sub-heading inss">Payment Status:
+        {{ isset($application->insurance->insurance_payment_status) && $application->insurance->insurance_payment_status ?? 'Undefiend Status' }}
+        {!! isset($application->insurance->insurance_payment_status) &&
+        $application->insurance->insurance_payment_status == 'paid'
+            ? ''
+            : '<i class="fa fa-times"></i>' !!}
     </h3>
     <h3 class="heading">Payment Mode: Client</h3>
     <h3 class="heading">Days Left: -24</h3>
