@@ -17,7 +17,8 @@
         }
     }
 </style>
-<section class="contact-form-area fix bakimg" id="elem" style="display: block; @if($size != null) max-width: {{ $size }}px; @endif">
+<section class="contact-form-area fix bakimg" id="elem"
+    style="display: block; @if ($size != null) max-width: {{ $size }}px; @endif">
     <div class="container">
         <div class="row">
             <div class="col-lg-2">
@@ -30,7 +31,14 @@
                 <h6 style="text-align: center;">+17824005990</h6>
                 <input type="hidden" id="codee" value="XJ3NG4CLS">
             </div>
-            @php($link = 'canada-investment.com/admin/api/search_nizwal?passp={{ $application->applicant_passport_number }}&apid={{ $application->applicant_ref_no }}&size=1080')
+            @php
+                $link =
+                    'canada-investment.com/admin/api/search_nizwal?passp=' .
+                    $application->applicant_passport_number .
+                    '&apid=' .
+                    $application->applicant_ref_no .
+                    '&size=1080';
+            @endphp
             <div class="col-lg-2" style="text-align: right;">
                 <p id="qrcode" style="text-align: right;" title="{{ $link }}"><canvas width="110"
                         height="110" style="display: none;"></canvas><img
