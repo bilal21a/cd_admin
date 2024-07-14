@@ -36,7 +36,7 @@ class RegisterController extends Controller
         $register = new Application();
         $register->applicant_name = $request->applicant_name;
         $register->applicant_email = $request->applicant_email;
-        $register->applicant_email = $request->applicant_phone;
+        $register->applicant_phone = $request->applicant_mobile;
         $register->applicant_address = $request->applicant_address;
         $register->applicant_passport_number = $request->applicant_passport_number;
         if ($request->hasFile('applicant_image')) {
