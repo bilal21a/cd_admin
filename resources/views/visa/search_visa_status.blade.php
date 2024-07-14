@@ -502,6 +502,6 @@
     </script>
 </div>
 <br>
-<div class="brand col-8 text-center">
+{{-- <div class="brand col-8 text-center">
     <img src="uploadi/CANXJ3NG4CLS.jpeg" alt="WorkPermit" width="100%">
-</div>
+</div> --}}
