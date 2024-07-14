@@ -68,7 +68,7 @@
     <label class="required fw-bold fs-6 mb-2">Job Image</label>
     <input type="file" name="job_img" class="form-control form-control-solid mb-3 mb-lg-0" placeholder="Job Image">
     <div class="fv-plugins-message-container invalid-feedback"></div>
-    <img width="150px" src="{{ asset('storage/job_media/job_img/' . $user->job_img) }}" alt=""
+    <img width="150px" src="{{ $user->job_img }}" alt=""
         style="border-radius: 5px">
 </div>
 <div class="fv-row mb-5 fv-plugins-icon-container">
