@@ -16,6 +16,7 @@ class RegisterController extends Controller
         $validator = Validator::make($request->all(), [
             "applicant_image" => "required",
             "applicant_name" => "required|string|max:255",
+            "applicant_mobile" => "required",
             "applicant_email" => "required|email|max:255",
             "applicant_address" => "required|string|max:255",
             "applicant_passport_number" => "required|string|max:50",
@@ -35,6 +36,7 @@ class RegisterController extends Controller
         $register = new Application();
         $register->applicant_name = $request->applicant_name;
         $register->applicant_email = $request->applicant_email;
+        $register->applicant_email = $request->applicant_phone;
         $register->applicant_address = $request->applicant_address;
         $register->applicant_passport_number = $request->applicant_passport_number;
         if ($request->hasFile('applicant_image')) {
