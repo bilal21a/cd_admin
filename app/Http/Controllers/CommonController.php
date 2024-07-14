@@ -12,7 +12,7 @@ class CommonController extends Controller
 
     function get_jobs()
     {
-        $jobs = DB::table('jobs')->get();
+        $jobs = Job::get();
         return $this->success($jobs);
     }
 }
