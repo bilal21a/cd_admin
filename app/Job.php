@@ -10,7 +10,7 @@ class Job extends Model
     {
         return $this->hasMany(Application::class);
     }
-    public function getJobImgUrlAttribute()
+    public function getJobImgAttribute()
     {
         return asset('storage/job_media/job_img/' . $this->attributes['job_img']);
     }
