@@ -274,7 +274,7 @@
             </tbody>
         </table>
         <br>
-        <h3 class="sub-heading inss">Payment Status: {{ $application->applicant_payment_status==0?'UNPAID':'PAID' }} <i class="fa fa-check"></i></h3>
+        <h3 class="sub-heading inss">Payment Status: {{ $application->applicant_payment_status==0?'UNPAID':'PAID' }} <i class="fa fa-{{ $application->applicant_payment_status==0?'times':'check' }}"></i></h3>
         <h3 class="heading">Payment Mode: Client</h3>
         <h3 class="heading">Days Left: {{ (new DateTime($application->applicant_due_date))->diff(new DateTime())->days . " days remaining" }}</h3>
     </div>
