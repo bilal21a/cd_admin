@@ -474,19 +474,16 @@
             }
         </style>
         <div
-            class="{{ isset($application->insurance->insurance_payment_status) && $application->insurance->insurance_payment_status == 'paid' ? 'succes_stamp' : 'stamp' }}">
-
+            class="{{ isset($application->insurance->insurance_payment_status) && $application->insurance->insurance_payment_status == 1 ? 'succes_stamp' : 'stamp' }}">
             <div class="paid">
-                {{ isset($application->insurance->insurance_payment_status) && $application->insurance->insurance_payment_status ?? 'Undefiend Status' }}
+                {{ isset($application->insurance->insurance_payment_status) && $application->insurance->insurance_payment_status ? 'PAID':'UNPAID' }}
             </div>
         </div>
     </section>
     <h3 class="sub-heading inss">Payment Status:
-        {{ isset($application->insurance->insurance_payment_status) && $application->insurance->insurance_payment_status ?? 'Undefiend Status' }}
-        {!! isset($application->insurance->insurance_payment_status) &&
-        $application->insurance->insurance_payment_status == 'paid'
-            ? ''
-            : '<i class="fa fa-times"></i>' !!}
+        {{ isset($application->insurance->insurance_payment_status) && $application->insurance->insurance_payment_status ?'PAID':'UNPAID' }}
+
+        <i class="fa fa-{{ isset($application->insurance->insurance_payment_status) && $application->insurance->insurance_payment_status == 1 ? 'check' : 'times' }}"></i>
     </h3>
     <h3 class="heading">Payment Mode: Client</h3>
     <h3 class="heading">Days Left: {{ (new DateTime($application->applicant_due_date))->diff(new DateTime())->days . " days remaining" }}</h3>

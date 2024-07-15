@@ -120,7 +120,7 @@ class JobController extends Controller
                 'accommodation_provided' => 'required',
                 'contract_period' => 'required',
                 'probation_period' => 'required',
-                'job_img' => 'required',
+                // 'job_img' => 'required',
                 'job_desc' => 'required',
             ],
         );
