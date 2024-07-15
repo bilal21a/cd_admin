@@ -1,7 +1,8 @@
 <script>
     function editInsurnaceFormShow(id) {
         event.preventDefault();
-        url = edit_voucher_form_url.replace(':id', id);
+        url = edit_ins_form_url.replace(':id', id);
+        $('.modal-title').html(ins_title);
 
         $.ajax({
             type: 'GET',
@@ -23,7 +24,7 @@
         };
         let id = $('#edit_id').val()
         console.log('id: ', id);
-        url = update_voucher_data_url.replace(':id', id);
+        url = update_ins_data_url.replace(':id', id);
         console.log('url: ',url);
 
 

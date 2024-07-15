@@ -114,7 +114,7 @@
         }
         var edit_voucher_form_url = `{{ route('vouchers.edit', ':id') }}`
         var update_voucher_data_url = `{{ route('vouchers.update', ':id') }}`
-        // var add_title = "Edit Voucher"
+        var add_title = "Edit Voucher"
     </script>
     @include('application.modal.js.coupon_edit_modal_js')
     {{--Delete Voucher model --}}
@@ -176,9 +176,9 @@
             var company_id= company_id;
             editInsurnaceFormShow(company_id)
         }
-        var edit_voucher_form_url = `{{ route('insurance.edit', ':id') }}`
-        var update_voucher_data_url = `{{ route('insurance.update', ':id') }}`
-        // var add_title = "Edit Voucher"
+        var edit_ins_form_url = `{{ route('insurance.edit', ':id') }}`
+        var update_ins_data_url = `{{ route('insurance.update', ':id') }}`
+        var ins_title = "Add/Edit Insurance"
     </script>
     @include('application.modal.js.insurance.insurance_edit_modal_js')
     {{--Delete Voucher model --}}

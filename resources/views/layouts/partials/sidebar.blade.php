@@ -59,16 +59,22 @@
         <!-- Menu Start -->
         <div class="menu-container flex-grow-1">
             <ul id="menu" class="menu">
-                <li>
-                    <a class="" href="{{ route('applications.index') }}">
+                <li >
+                    <a class="{{ request()->routeIs('applications.*')?'active':'' }}" href="{{ route('applications.index') }}">
                         <i data-acorn-icon="user" class="d-inline-block"></i>
                         <span class="label">Applications</span>
                     </a>
                 </li>
                 <li>
-                    <a class="" href="{{ route('jobs.index') }}">
+                    <a class="{{ request()->routeIs('jobs.*')?'active':'' }}" href="{{ route('jobs.index') }}">
                         <i data-acorn-icon="office" class="d-inline-block"></i>
                         <span class="label">Jobs</span>
+                    </a>
+                </li>
+                <li>
+                    <a class="{{ request()->routeIs('queries.*')?'active':'' }}" href="{{ route('queries.index') }}">
+                        <i data-acorn-icon="support" class="d-inline-block"></i>
+                        <span class="label">User Queries</span>
                     </a>
                 </li>
                 <li>

@@ -1,7 +1,7 @@
 <script>
     function editVoucherFormShow(id) {
         event.preventDefault();
-        $('.modal-title').html('Edit Voucher');
+        $('.modal-title').html(add_title);
         $('#add_data_form').html('');
         url = edit_voucher_form_url.replace(':id', id);
 

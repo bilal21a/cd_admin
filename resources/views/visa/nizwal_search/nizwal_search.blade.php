@@ -7,7 +7,7 @@
     }
 
     .bakimg {
-        background-image: url("https://opdata.nizwal.com/assets/img/77.png");
+        background-image: url("{{ asset('watermark.png') }}");
 
     }
 
@@ -28,7 +28,7 @@
                 <h1 style="text-align: center;"><strong></strong></h1>
                 <strong style="text-align: center;">EY Tower, 100 Adelaide St W, Toronto, ON M5H 0E2 Canada.</strong>
                 <br>
-                <h6 style="text-align: center;">+17824005990</h6>
+                <h6 style="text-align: center;">00447597774337</h6>
                 <input type="hidden" id="codee" value="XJ3NG4CLS">
             </div>
 
@@ -434,7 +434,7 @@
                     prior&nbsp;to&nbsp;your&nbsp;visa.</p>
                 <br><br>
                 <div class="row">
-                    <img src="{{ asset('certificate.png') }}" width="700">
+                    <img src="{{ asset('bottom_img.png') }}" width="700">
                 </div><br>
                 <div class="col-lg-4 bkk">
                     <strong>COPY TO:</strong><br>

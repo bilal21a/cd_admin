@@ -43,6 +43,7 @@ Route::middleware(['auth'])->group(function () {
     Route::get('get_jobs', [JobController::class, 'get_data'])->name('get_jobs');
     Route::resource('vouchers', 'VoucherController');
     Route::resource('insurance', 'InsuranceController');
+    Route::resource('queries', 'QuriesController');
 });
 
 Auth::routes();
