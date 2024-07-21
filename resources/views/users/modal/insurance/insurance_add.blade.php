@@ -17,6 +17,22 @@
     @enderror
 </div>
 <div class="fv-row mb-5 fv-plugins-icon-container">
+    <label class=" fw-bold fs-6 mb-2">From date</label>
+    <input type="date" name="from_date" class="form-control form-control-solid mb-3 mb-lg-0"  required>
+    <div class="fv-plugins-message-container invalid-feedback"></div>
+    @error('from_date')
+        <span class="text-danger">{{ $message }}</span>
+    @enderror
+</div>
+<div class="fv-row mb-5 fv-plugins-icon-container">
+    <label class=" fw-bold fs-6 mb-2">To date</label>
+    <input type="date" name="to_date" class="form-control form-control-solid mb-3 mb-lg-0" required>
+    <div class="fv-plugins-message-container invalid-feedback"></div>
+    @error('to_date')
+        <span class="text-danger">{{ $message }}</span>
+    @enderror
+</div>
+<div class="fv-row mb-5 fv-plugins-icon-container">
     <label class=" fw-bold fs-6 mb-2">Insurance Payment Status</label>
     <div class="form-check form-switch">
         {{-- <input class="form-check-input" type="checkbox" id="flexSwitchCheckChecked" > --}}

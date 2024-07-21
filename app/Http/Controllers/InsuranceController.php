@@ -41,8 +41,10 @@ class InsuranceController extends Controller
         $validate = Validator::make($request->all(), [
             "insurance_policy_no" => "required|numeric",
             "insurance_fee" => "required|numeric",
-            "applicant_payment_status" => "required|string|max:255",
+            // "applicant_payment_status" => "required|string|max:255",
             "company_id_send" => "required",
+            "to_date" => "required",
+            "from_date" => "required",
         ]);
 
         if ($validate->fails()) {
@@ -53,6 +55,8 @@ class InsuranceController extends Controller
         $insurance->insurance_policy_no = $request->insurance_policy_no;
         $insurance->insurance_fee = $request->insurance_fee;
         $insurance->insurance_payment_status = $applicant_payment_status;
+        $insurance->insurance_date_to = $request->to_date;
+        $insurance->insurance_date_from = $request->from_date;
         $insurance->application_id = $request->company_id_send;
         $insurance->save();
         return 'Insurance created successfully';
@@ -105,6 +109,8 @@ class InsuranceController extends Controller
         $insurance = Insurance::find($id);
         $insurance->insurance_policy_no = $request->insurance_policy_no;
         $insurance->insurance_fee = $request->insurance_fee;
+        $insurance->insurance_date_to = $request->to_date;
+        $insurance->insurance_date_from = $request->from_date;
         $insurance->insurance_payment_status = $applicant_payment_status;
         $insurance->save();
         return 'Insurance Updated successfully';
