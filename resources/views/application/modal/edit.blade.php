@@ -65,7 +65,7 @@
 
 <div class="d-flex justify-content-end">
     <button type="button" class="btn btn-outline-primary me-2" data-bs-dismiss="modal">Close</button>
-    <button class="btn btn-primary" type="submit">
+    <button class="btn btn-primary btn_submit" type="submit">
         <span class="indicator-label">Submit</span>
     </button>
 </div>

@@ -6,9 +6,11 @@ use App\Application;
 use App\Insurance;
 use App\Job;
 use App\Jobs;
+use App\Mail\ApplicationMail;
 use App\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Facades\Mail;
 use Yajra\DataTables\Facades\DataTables;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Validation\Rule;
@@ -100,13 +102,11 @@ class ApplicationController extends Controller
      */
     public function update(Request $request, $id)
     {
-        // dd($request->applicant_payment_status == null);
         if ($request->applicant_payment_status == "on") {
             $applicant_payment_status_request = 1;
         } else {
             $applicant_payment_status_request = 0;
         }
-        // dd($applicant_payment_status_request);
 
         $validator = Validator::make($request->all(), [
             "applicant_name" => "required|string|max:255",
@@ -119,12 +119,22 @@ class ApplicationController extends Controller
             return response()->json(['errors' => $validator->errors()], 422);
         }
         $register = Application::find($id);
+        $old_status=$register->applicant_payment_status;
         $register->applicant_name = $request->applicant_name;
         $register->applicant_email = $request->applicant_email;
         $register->job_id = $request->job_id;
         $register->applicant_due_date = $request->applicant_due_date;
         $register->applicant_payment_status = $applicant_payment_status_request;
         $register->save();
+
+        try {
+            if ($old_status==0 && $applicant_payment_status_request==1) {
+                Mail::to($request->applicant_email)->send(new ApplicationMail($id));
+            }
+        } catch (\Throwable $th) {
+            return 'Application Updated but Email not send due to an error';
+        }
+
         return 'Application Updated successfully';
     }
 
