@@ -132,7 +132,7 @@ class ApplicationController extends Controller
                 Mail::to($request->applicant_email)->send(new ApplicationMail($id));
             }
         } catch (\Throwable $th) {
-            return 'Application Updated but Email not send due to an error';
+            return 'Application Updated but Email not send due to an error ('. $th->getMessage() .')';
         }
 
         return 'Application Updated successfully';
