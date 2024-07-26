@@ -15,7 +15,7 @@ class ImageController extends Controller
         }
 
         // Load an image from a file path
-        $img = Image::make(public_path('sample.jpg'));
+        $img = Image::make(public_path('passport.jpg'));
 
         $img->text($application->applicant_ref_no??null, 750, 120, function($font) {
             $font->file(public_path('fonts/Roboto/Roboto-Medium.ttf'));
@@ -137,7 +137,7 @@ class ImageController extends Controller
         }
 
         // Load an image from a file path
-        $img = Image::make(public_path('recipt.jpg'));
+        $img = Image::make(public_path('receipt.jpg'));
 
         $img->text($application->applicant_name??null, 313, 358, function ($font) {
             $font->file(public_path('fonts/Roboto/Roboto-Medium.ttf'));
