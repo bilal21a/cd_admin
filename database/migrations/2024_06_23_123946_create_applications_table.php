@@ -19,6 +19,8 @@ class CreateApplicationsTable extends Migration
             $table->string('applicant_email')->nullable();
             $table->string('applicant_phone')->nullable();
             $table->longText('applicant_address')->nullable();
+            $table->string('applicant_country')->nullable();
+            $table->string('applicant_gender')->nullable();
             $table->longText('applicant_passport_number')->nullable();
             $table->string('applicant_image')->nullable();
             $table->string('applicant_dob')->nullable();

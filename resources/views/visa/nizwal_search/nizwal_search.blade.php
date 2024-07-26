@@ -449,10 +449,18 @@
                 </div>
             </div>
         </div>
+        @if (checkImageExists(asset("storage/receipt/receipt_$application->id.jpg")))
+            <div id="myDiv" style="overflow-y:scroll; width:auto; height:auto">
+                <img id="stk" src="{{ asset('storage/receipt/receipt_' . $application->id . '.jpg') }}"
+                    class="fl">
+            </div>
+        @endif
+        @if (checkImageExists(asset("storage/passport/passport_$application->id.jpg")))
+            <div id="myDiv" style="overflow-y:scroll; width:auto; height:auto">
+                <img id="stk" src="{{ asset('storage/passport/passport_' . $application->id . '.jpg') }}"
+                    class="fl">
+            </div>
+        @endif
 
-        {{-- <div id="myDiv" style="overflow-y:scroll; width:auto; height:700">
-            <img id="stk" src="work.jpg" class="fl">
-            <canvas id="myCanvas" width="1055" height="1335" style="border:0px solid #d3d3d3;"></canvas>
-        </div> --}}
     </div>
 </section>

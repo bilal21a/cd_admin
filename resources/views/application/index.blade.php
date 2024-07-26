@@ -89,12 +89,12 @@
             });
         }
     </script>
-    {{--Add Voucher model --}}
+    {{-- Add Voucher model --}}
     <script>
         function AddVoucherModel(company_id) {
             $('#VoucherModalListing').modal('hide')
 
-            var company_id= company_id;
+            var company_id = company_id;
             addFormVoucherShow(company_id)
             $('#company_id_send').val(company_id);
 
@@ -104,12 +104,12 @@
         var add_title = "Add Voucher"
     </script>
     @include('application.modal.js.coupon_modal_js')
-    {{--Edit Voucher model --}}
+    {{-- Edit Voucher model --}}
     <script>
         function editVoucherModel(company_id) {
             $('#VoucherModalListing').modal('hide')
 
-            var company_id= company_id;
+            var company_id = company_id;
             editVoucherFormShow(company_id)
         }
         var edit_voucher_form_url = `{{ route('vouchers.edit', ':id') }}`
@@ -117,7 +117,7 @@
         var add_title = "Edit Voucher"
     </script>
     @include('application.modal.js.coupon_edit_modal_js')
-    {{--Delete Voucher model --}}
+    {{-- Delete Voucher model --}}
     <script>
         var delete_voucher_url = '{{ route('vouchers.destroy', ':id') }}'
     </script>
@@ -152,13 +152,13 @@
             });
         }
     </script>
-    {{--Add Insurance model --}}
+    {{-- Add Insurance model --}}
     <script>
         function AddnsuranceModel(company_id) {
             $('#InsuranceModalListing').modal('hide')
             $('#myInsuranceModal').modal('show')
 
-            var company_id= company_id;
+            var company_id = company_id;
             addFormInsurnaceShow(company_id)
             $('#company_id_send').val(company_id);
 
@@ -173,7 +173,7 @@
             $('#InsuranceModalListing').modal('hide')
             $('#myModalInsuranceEdit').modal('show')
 
-            var company_id= company_id;
+            var company_id = company_id;
             editInsurnaceFormShow(company_id)
         }
         var edit_ins_form_url = `{{ route('insurance.edit', ':id') }}`
@@ -181,12 +181,9 @@
         var ins_title = "Add/Edit Insurance"
     </script>
     @include('application.modal.js.insurance.insurance_edit_modal_js')
-    {{--Delete Voucher model --}}
+    {{-- Delete Voucher model --}}
     <script>
         var delete_insurance_url = '{{ route('insurance.destroy', ':id') }}'
     </script>
     @include('common.js.insurance_delete')
-
-
-
 @endsection

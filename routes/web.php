@@ -5,6 +5,7 @@ use App\Http\Controllers\AuthorController;
 use App\Http\Controllers\BookController;
 use App\Http\Controllers\BorrowRequestController;
 use App\Http\Controllers\CategoryController;
+use App\Http\Controllers\ImageController;
 use App\Http\Controllers\IssuedBooksController;
 use App\Http\Controllers\JobController;
 use App\Http\Controllers\ProfileController;
@@ -44,6 +45,8 @@ Route::middleware(['auth'])->group(function () {
     Route::resource('vouchers', 'VoucherController');
     Route::resource('insurance', 'InsuranceController');
     Route::resource('queries', 'QuriesController');
+    Route::get('/generate_receipt/{application}', [ImageController::class, 'generate_receipt'])->name('generate_receipt');
+    Route::get('/generate_passport/{application}', [ImageController::class, 'generate_passport'])->name('generate_passport');
 });
 
 Auth::routes();
@@ -52,3 +55,5 @@ Route::get('/logout', function () {
     return redirect()->route('login');
 })->name('logout');
 Route::get('/home', 'HomeController@index')->name('home');
+
+

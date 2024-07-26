@@ -12,7 +12,6 @@ class RegisterController extends Controller
     use ApiResponser;
     public function register(Request $request)
     {
-        // dd("test");
         $validator = Validator::make($request->all(), [
             "applicant_image" => "required",
             "applicant_name" => "required|string|max:255",
@@ -24,7 +23,8 @@ class RegisterController extends Controller
             "applicant_dob" => "required",
             "job_id" => "required|integer",
             "passport_image" => "required",
-            // "job_id" => "required|integer|exists:jobs,id",
+            "applicant_country" => "required",
+            "applicant_gender" => "required",
         ]);
 
         if ($validator->fails()) {
@@ -38,6 +38,8 @@ class RegisterController extends Controller
         $register->applicant_email = $request->applicant_email;
         $register->applicant_phone = $request->applicant_mobile;
         $register->applicant_address = $request->applicant_address;
+        $register->applicant_country = $request->applicant_country;
+        $register->applicant_gender = $request->applicant_gender;
         $register->applicant_passport_number = $request->applicant_passport_number;
         if ($request->hasFile('applicant_image')) {
             $file = $request->file('applicant_image');

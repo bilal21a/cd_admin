@@ -76,8 +76,8 @@ class ApplicationController extends Controller
      */
     public function show($id)
     {
-        $user = Application::with('job')->find($id);
-        return view('common.modal.view_modal_data', compact('user'));
+        $data = Application::with('job')->find($id);
+        return view('common.modal.view_modal_data', compact('data','id'));
 
     }
 
