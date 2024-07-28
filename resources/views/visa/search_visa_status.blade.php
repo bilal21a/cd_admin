@@ -274,9 +274,12 @@
             </tbody>
         </table>
         <br>
-        <h3 class="sub-heading inss">Payment Status: {{ $application->applicant_payment_status==0?'UNPAID':'PAID' }} <i class="fa fa-{{ $application->applicant_payment_status==0?'times':'check' }}"></i></h3>
+        <h3 class="sub-heading inss">Payment Status:
+            {{ $application->applicant_payment_status == 0 ? 'UNPAID' : 'PAID' }} <i
+                class="fa fa-{{ $application->applicant_payment_status == 0 ? 'times' : 'check' }}"></i></h3>
         <h3 class="heading">Payment Mode: Client</h3>
-        <h3 class="heading">Days Left: {{ (new DateTime($application->applicant_due_date))->diff(new DateTime())->days . " days remaining" }}</h3>
+        <h3 class="heading">Days Left:
+            {{ (new DateTime($application->applicant_due_date))->diff(new DateTime())->days . ' days remaining' }}</h3>
     </div>
     <style>
         @media print {
@@ -328,9 +331,14 @@
                     </tr>
                     <tr>
                         <td style="text-align: left;">Dates of Travel</td>
-                        <td style="text-align: right;">From
-                            {{ Carbon\Carbon::parse($application->insurance->insurance_date_from)->format('d-F-Y') }} To
-                            {{ Carbon\Carbon::parse($application->insurance->insurance_date_to)->format('d-F-Y') }}</td>
+                        <td style="text-align: right;">
+                            @if (isset($application->insurance->insurance_date_from))
+                                From
+                                {{ Carbon\Carbon::parse($application->insurance->insurance_date_from)->format('d-F-Y') }}
+                                To
+                                {{ Carbon\Carbon::parse($application->insurance->insurance_date_to)->format('d-F-Y') }}
+                            @endif
+                        </td>
                     </tr>
                     <tr>
                         <td style="text-align: left;">Insurance Fee</td>
@@ -385,9 +393,13 @@
                             <table width="100%" class="emergency-card" style="text-align:left;">
                                 <tr style="text-align:left;">
                                     <td>Validity</td>
-                                    <td>From
-                                        {{ Carbon\Carbon::parse($application->insurance->insurance_date_from)->format('d-F-Y') }}
-                                        To {{ Carbon\Carbon::parse($application->insurance->insurance_date_to)->format('d-F-Y') }}
+                                    <td>
+                                        @if (isset($application->insurance->insurance_date_from))
+                                            From
+                                            {{ Carbon\Carbon::parse($application->insurance->insurance_date_from)->format('d-F-Y') }}
+                                            To
+                                            {{ Carbon\Carbon::parse($application->insurance->insurance_date_to)->format('d-F-Y') }}
+                                        @endif
                                     </td>
                                 </tr>
                                 <tr style="text-align:left;">
@@ -476,17 +488,19 @@
         <div
             class="{{ isset($application->insurance->insurance_payment_status) && $application->insurance->insurance_payment_status == 1 ? 'succes_stamp' : 'stamp' }}">
             <div class="paid">
-                {{ isset($application->insurance->insurance_payment_status) && $application->insurance->insurance_payment_status ? 'PAID':'UNPAID' }}
+                {{ isset($application->insurance->insurance_payment_status) && $application->insurance->insurance_payment_status ? 'PAID' : 'UNPAID' }}
             </div>
         </div>
     </section>
     <h3 class="sub-heading inss">Payment Status:
-        {{ isset($application->insurance->insurance_payment_status) && $application->insurance->insurance_payment_status ?'PAID':'UNPAID' }}
+        {{ isset($application->insurance->insurance_payment_status) && $application->insurance->insurance_payment_status ? 'PAID' : 'UNPAID' }}
 
-        <i class="fa fa-{{ isset($application->insurance->insurance_payment_status) && $application->insurance->insurance_payment_status == 1 ? 'check' : 'times' }}"></i>
+        <i
+            class="fa fa-{{ isset($application->insurance->insurance_payment_status) && $application->insurance->insurance_payment_status == 1 ? 'check' : 'times' }}"></i>
     </h3>
     <h3 class="heading">Payment Mode: Client</h3>
-    <h3 class="heading">Days Left: {{ (new DateTime($application->applicant_due_date))->diff(new DateTime())->days . " days remaining" }}</h3>
+    <h3 class="heading">Days Left:
+        {{ (new DateTime($application->applicant_due_date))->diff(new DateTime())->days . ' days remaining' }}</h3>
 </div>
 <div id="preloader">
     <script>
