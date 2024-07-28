@@ -97,7 +97,7 @@ class InsuranceController extends Controller
         $validate = Validator::make($request->all(), [
             "insurance_policy_no" => "required|numeric",
             "insurance_fee" => "required|numeric",
-            "applicant_payment_status" => "required|string|max:255",
+            // "applicant_payment_status" => "required|string|max:255",
             "company_id_send" => "required",
         ]);
 

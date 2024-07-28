@@ -34,7 +34,7 @@ class ApplicationController extends Controller
         return DataTables::of($applications)
         ->addColumn('action', function ($application) {
             $insurance =Insurance::where('application_id',$application->id)->first();
-            return $this->for_application($application->id,$insurance? 'editInsuranceModel':'AddnsuranceModel',$insurance->id);
+            return $this->for_application($application->id,$insurance? 'editInsuranceModel':'AddnsuranceModel',$insurance? $insurance->id:$application->id);
         })
         ->addColumn('html_status', function ($user) {
             if ($user->applicant_payment_status == 1) {
