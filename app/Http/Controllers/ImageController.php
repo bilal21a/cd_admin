@@ -164,7 +164,7 @@ class ImageController extends Controller
             $font->size(14);
             $font->color('#100A00');
         });
-        $img->text(null, 370, 543, function ($font) {
+        $img->text($application->receipt_amount??null, 370, 543, function ($font) {
             $font->file(public_path('fonts/Roboto/Roboto-Medium.ttf'));
             $font->size(14);
             $font->color('#100A00');

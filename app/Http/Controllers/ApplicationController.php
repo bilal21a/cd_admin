@@ -33,14 +33,14 @@ class ApplicationController extends Controller
         $applications = Application::get();
         return DataTables::of($applications)
         ->addColumn('action', function ($application) {
-            $insurance =Insurance::find($application->id);
-            return $this->for_application($application->id,$insurance==null? 'AddnsuranceModel':'editInsuranceModel');
+            $insurance =Insurance::where('application_id',$application->id)->first();
+            return $this->for_application($application->id,$insurance? 'editInsuranceModel':'AddnsuranceModel',$insurance->id);
         })
         ->addColumn('html_status', function ($user) {
             if ($user->applicant_payment_status == 1) {
-                return '<span class="badge bg-success text-uppercase">Success</span>';
+                return '<span class="badge bg-success text-uppercase">PAID</span>';
             } else {
-                return '<span class="badge bg-danger text-uppercase">Un-paid</span>';
+                return '<span class="badge bg-danger text-uppercase">UN-PAID</span>';
             }
         })
         ->rawColumns(['html_status', 'action']) // Specify columns that contain HTML
@@ -125,6 +125,7 @@ class ApplicationController extends Controller
         $register->job_id = $request->job_id;
         $register->applicant_due_date = $request->applicant_due_date;
         $register->applicant_payment_status = $applicant_payment_status_request;
+        $register->receipt_amount = $request->receipt_amount;
         $register->save();
 
         try {

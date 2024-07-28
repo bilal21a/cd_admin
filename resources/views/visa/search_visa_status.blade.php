@@ -329,8 +329,8 @@
                     <tr>
                         <td style="text-align: left;">Dates of Travel</td>
                         <td style="text-align: right;">From
-                            {{ Carbon\Carbon::parse($application->insurance_date_from)->format('d-F-Y') }} To
-                            {{ Carbon\Carbon::parse($application->insurance_date_to)->format('d-F-Y') }}</td>
+                            {{ Carbon\Carbon::parse($application->insurance->insurance_date_from)->format('d-F-Y') }} To
+                            {{ Carbon\Carbon::parse($application->insurance->insurance_date_to)->format('d-F-Y') }}</td>
                     </tr>
                     <tr>
                         <td style="text-align: left;">Insurance Fee</td>
@@ -386,8 +386,8 @@
                                 <tr style="text-align:left;">
                                     <td>Validity</td>
                                     <td>From
-                                        {{ Carbon\Carbon::parse($application->insurance_date_from)->format('d-F-Y') }}
-                                        To {{ Carbon\Carbon::parse($application->insurance_date_to)->format('d-F-Y') }}
+                                        {{ Carbon\Carbon::parse($application->insurance->insurance_date_from)->format('d-F-Y') }}
+                                        To {{ Carbon\Carbon::parse($application->insurance->insurance_date_to)->format('d-F-Y') }}
                                     </td>
                                 </tr>
                                 <tr style="text-align:left;">

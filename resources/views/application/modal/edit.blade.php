@@ -49,6 +49,17 @@
         @enderror
     </div>
 </div>
+<div class="mb-5">
+    <div data-kt-user-table-filter="form">
+        <label class="required fw-bold fs-6 mb-2">Receipt Amount</label>
+        <input type="text" name="receipt_amount" class="form-control form-control-solid mb-3 mb-lg-0" placeholder="Receipt Amount"
+            value="{{ $user->receipt_amount }}">
+        <div class="fv-plugins-message-container invalid-feedback"></div>
+        @error('receipt_amount')
+            <span class="text-danger">{{ $message }}</span>
+        @enderror
+    </div>
+</div>
 <div class="fv-row mb-5 fv-plugins-icon-container">
     <label class="required fw-bold fs-6 mb-2">Application Payment Status</label>
     <div class="form-check form-switch">

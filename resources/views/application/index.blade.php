@@ -17,7 +17,6 @@
                 'Applicant Name',
                 'Applicant Email',
                 'applicanta passport number',
-                'Job Title',
                 'applicant ref no',
                 'applicant payment status',
                 'Actions',
@@ -40,7 +39,7 @@
 @section('js_after')
     {{-- **Show Data** --}}
     <script>
-        var tabelDataArray = ['applicant_name', 'applicant_email', 'applicant_passport_number', 'job_id',
+        var tabelDataArray = ['applicant_name', 'applicant_email', 'applicant_passport_number',
             'applicant_ref_no', 'html_status', 'action'
         ];
         var get_data_url = "{{ route('get_applications') }}"

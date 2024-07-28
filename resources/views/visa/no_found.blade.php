@@ -1,1 +1,1 @@
-<img src="{{ asset('sb.png') }}" alt="">
+<img src="{{ asset('no_data.svg') }}" alt="">

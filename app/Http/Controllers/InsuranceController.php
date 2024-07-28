@@ -82,7 +82,6 @@ class InsuranceController extends Controller
     public function edit($id)
     {
         $insurance =Insurance::find($id);
-        // dd($insurance);
         return view('users.modal.insurance.insurance_update',compact('id','insurance'));
     }
 

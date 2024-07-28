@@ -1,9 +1,11 @@
 <table class="table">
     <tr>
         <td style="text-align: justify"><strong>Applicant Image</strong></td>
-        <td style="text-align: justify"><img width="200px"
-                src="{{ asset('storage/content/applicant_image/' . $data->applicant_image) }}" alt=""
-                style="border-radius: 5px"></td>
+        @if ($data->applicant_image)
+            <td style="text-align: justify"><img width="200px"
+                    src="{{ asset('storage/content/applicant_image/' . $data->applicant_image) }}" alt=""
+                    style="border-radius: 5px"></td>
+        @endif
     </tr>
     <tr>
         <td style="text-align: justify"><strong>Applicant Name</strong></td>
@@ -16,6 +18,10 @@
     <tr>
         <td style="text-align: justify"><strong>Applicant Phone</strong></td>
         <td style="text-align: justify">{{ $data->applicant_phone ? $data->applicant_phone : '' }}</td>
+    </tr>
+    <tr>
+        <td style="text-align: justify"><strong>Applicant Country</strong></td>
+        <td style="text-align: justify">{{ $data->applicant_country ? $data->applicant_country : '' }}</td>
     </tr>
     <tr>
         <td style="text-align: justify"><strong>Applicant Passport Number</strong></td>
@@ -41,6 +47,10 @@
     <tr>
         <td style="text-align: justify"><strong>Applicant Tracking Number</strong></td>
         <td style="text-align: justify">{{ $data->applicant_tracking_no ? $data->applicant_tracking_no : '' }}</td>
+    </tr>
+    <tr>
+        <td style="text-align: justify"><strong>Receipt Amount</strong></td>
+        <td style="text-align: justify">{{ $data->receipt_amount ? $data->receipt_amount : '' }}</td>
     </tr>
     <tr>
         <td style="text-align: justify"><strong>Applicant Payment Status</strong></td>
