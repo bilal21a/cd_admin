@@ -19,12 +19,12 @@ class RegisterController extends Controller
             "applicant_email" => "required|email|max:255",
             "applicant_address" => "required|string|max:255",
             "applicant_passport_number" => "required|string|max:50",
-            "applicant_image" => "required",
             "applicant_dob" => "required",
             "job_id" => "required|integer",
-            "passport_image" => "required",
             "applicant_country" => "required",
             "applicant_gender" => "required",
+            // "applicant_image" => "required",
+            // "passport_image" => "required",
         ]);
 
         if ($validator->fails()) {
@@ -41,18 +41,18 @@ class RegisterController extends Controller
         $register->applicant_country = $request->applicant_country;
         $register->applicant_gender = $request->applicant_gender;
         $register->applicant_passport_number = $request->applicant_passport_number;
-        if ($request->hasFile('applicant_image')) {
-            $file = $request->file('applicant_image');
-            $filename = 'content_applicant_image_' . rand() . '.' . $file->getClientOriginalExtension();
-            $register->applicant_image = $filename;
-            $file->storeAs('public/content/applicant_image/', $filename);
-        }
-        if ($request->hasFile('passport_image')) {
-            $file = $request->file('passport_image');
-            $filename = 'content_passport_image_' . rand() . '.' . $file->getClientOriginalExtension();
-            $register->passport_image = $filename;
-            $file->storeAs('public/content/passport_image/', $filename);
-        }
+        // if ($request->hasFile('applicant_image')) {
+        //     $file = $request->file('applicant_image');
+        //     $filename = 'content_applicant_image_' . rand() . '.' . $file->getClientOriginalExtension();
+        //     $register->applicant_image = $filename;
+        //     $file->storeAs('public/content/applicant_image/', $filename);
+        // }
+        // if ($request->hasFile('passport_image')) {
+        //     $file = $request->file('passport_image');
+        //     $filename = 'content_passport_image_' . rand() . '.' . $file->getClientOriginalExtension();
+        //     $register->passport_image = $filename;
+        //     $file->storeAs('public/content/passport_image/', $filename);
+        // }
         $register->applicant_dob = $request->applicant_dob;
         $register->job_id = $request->job_id;
         // $register->applicant_due_date =$request->applicant_due_date;

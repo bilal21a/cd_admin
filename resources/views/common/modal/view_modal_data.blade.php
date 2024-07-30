@@ -1,12 +1,12 @@
 <table class="table">
-    <tr>
+    {{-- <tr>
         <td style="text-align: justify"><strong>Applicant Image</strong></td>
         @if ($data->applicant_image)
             <td style="text-align: justify"><img width="200px"
                     src="{{ asset('storage/content/applicant_image/' . $data->applicant_image) }}" alt=""
                     style="border-radius: 5px"></td>
         @endif
-    </tr>
+    </tr> --}}
     <tr>
         <td style="text-align: justify"><strong>Applicant Name</strong></td>
         <td style="text-align: justify">{{ $data->applicant_name ? $data->applicant_name : '' }}</td>
