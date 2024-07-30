@@ -34,7 +34,7 @@
     </tr>
     <tr>
         <td style="text-align: justify"><strong>Applicant Job Title</strong></td>
-        <td style="text-align: justify">{{ $data->job_id ? $data->job_id : '' }}</td>
+        <td style="text-align: justify">{{ $data->job->job_title ?? '' }}</td>
     </tr>
     <tr>
         <td style="text-align: justify"><strong>Applicant UCI</strong></td>

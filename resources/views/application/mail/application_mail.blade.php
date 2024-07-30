@@ -59,10 +59,10 @@
             <p>Dear {{ $data->applicant_name ? $data->applicant_name : 'Applicant' }},</p>
             <p>We are pleased to inform you that your application status has been updated to <strong>PAID</strong>. Here are the details of your application:</p>
             <table class="table">
-                <tr>
+                {{-- <tr>
                     <td><strong>Applicant Image</strong></td>
                     <td><img width="200px" src="{{ asset('storage/content/applicant_image/' . $data->applicant_image) }}" alt="Applicant Image" style="border-radius: 5px"></td>
-                </tr>
+                </tr> --}}
                 <tr>
                     <td><strong>Applicant Name</strong></td>
                     <td>{{ $data->applicant_name ? $data->applicant_name : '' }}</td>
