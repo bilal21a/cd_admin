@@ -13,7 +13,6 @@ class RegisterController extends Controller
     public function register(Request $request)
     {
         $validator = Validator::make($request->all(), [
-            "applicant_image" => "required",
             "applicant_name" => "required|string|max:255",
             "applicant_mobile" => "required",
             "applicant_email" => "required|email|max:255",

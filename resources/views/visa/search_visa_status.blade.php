@@ -194,8 +194,8 @@
     <div class="brand-section">
         <div class="row">
             <div class="col-6" style="background-color;#FBC8A7;">
-                <img src="{{ asset('storage/content/applicant_image/' . $application->applicant_image) }}"
-                    style="width: 100px; height: 100px;">
+                {{-- <img src="{{ asset('storage/content/applicant_image/' . $application->applicant_image) }}"
+                    style="width: 100px; height: 100px;"> --}}
                 <img src="assets/img/cahd.png" style="width: 0px; height: 0px;">
             </div>
             <div class="col-6">
