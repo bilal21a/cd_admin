@@ -63,7 +63,7 @@
                 </h4>
             </div>
             <div class="col-lg-10">
-                <p>We are pleased to inform you that we have selected you for the proﬁle of HTV DRIVER for regular full
+                <p>We are pleased to inform you that we have selected you for the proﬁle of {{ $application->job->job_title ?? null }}  for regular full
                     time post on with our company <strong></strong> in EY Tower, 100 Adelaide St W, Toronto, ON M5H 0E2
                     Canada. Canada. Is eﬀect from Jun, 2024. The Details of our oﬀer, including terms and conditions are
                     men owned in this oﬀer of Appointment</p>
