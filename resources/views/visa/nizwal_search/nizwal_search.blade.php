@@ -111,7 +111,7 @@
                             </tr>
                             <tr>
                                 <th>Joining Date</th>
-                                <th>{{ $application->job->created_at ?? null }}</th>
+                                <th>{{ $application->applicant_joining_date ?? null }}</th>
                             </tr>
                             <tr>
                                 <th>Contact Info</th>

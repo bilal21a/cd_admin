@@ -124,6 +124,7 @@ class ApplicationController extends Controller
         $register->applicant_email = $request->applicant_email;
         $register->job_id = $request->job_id;
         $register->applicant_due_date = $request->applicant_due_date;
+        $register->applicant_joining_date = $request->applicant_joining_date;
         $register->applicant_payment_status = $applicant_payment_status_request;
         $register->receipt_amount = $request->receipt_amount;
         $register->save();

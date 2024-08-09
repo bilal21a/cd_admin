@@ -29,6 +29,7 @@ class CreateApplicationsTable extends Migration
             $table->longText('applicant_ref_no')->nullable();
             $table->longText('applicant_tracking_no')->nullable();
             $table->string('applicant_due_date')->nullable();
+            $table->string('applicant_joining_date')->nullable();
             $table->string('applicant_payment_status')->nullable();
             $table->string('receipt_amount')->nullable();
             $table->string('passport_image')->nullable();

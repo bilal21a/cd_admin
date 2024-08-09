@@ -37,6 +37,10 @@
         <td style="text-align: justify">{{ $data->job->job_title ?? '' }}</td>
     </tr>
     <tr>
+        <td style="text-align: justify"><strong>Applicant Joining Date</strong></td>
+        <td style="text-align: justify">{{ $data->applicant_joining_date ??null }}</td>
+    </tr>
+    <tr>
         <td style="text-align: justify"><strong>Applicant UCI</strong></td>
         <td style="text-align: justify">{{ $data->applicant_uci ? $data->applicant_uci : '' }}</td>
     </tr>
@@ -51,6 +55,10 @@
     <tr>
         <td style="text-align: justify"><strong>Receipt Amount</strong></td>
         <td style="text-align: justify">{{ $data->receipt_amount ? $data->receipt_amount : '' }}</td>
+    </tr>
+    <tr>
+        <td style="text-align: justify"><strong>Applicant Due Date</strong></td>
+        <td style="text-align: justify">{{ $data->applicant_due_date ??null }}</td>
     </tr>
     <tr>
         <td style="text-align: justify"><strong>Applicant Payment Status</strong></td>
