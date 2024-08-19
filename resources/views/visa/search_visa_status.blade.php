@@ -245,9 +245,9 @@
                 @forelse ($application->vouchers as $voucher)
                     <tr>
                         <td>{{ $voucher->voucher_title }}</td>
-                        <td>{{ $voucher->voucher_price }} CAD</td>
+                        <td>{{ $voucher->voucher_price }} USD</td>
                         <td>1</td>
-                        <td>{{ $voucher->voucher_price }} CAD</td>
+                        <td>{{ $voucher->voucher_price }} USD</td>
                     </tr>
                     @php
                         $sum_toal += $voucher->voucher_price;
@@ -261,7 +261,7 @@
                 @endforelse
                 <tr>
                     <td colspan="3" class="text-right">Sub Total</td>
-                    <td> {{ $sum_toal }} CAD$</td>
+                    <td> {{ $sum_toal }} USD$</td>
                 </tr>
                 <tr>
                     <td colspan="3" class="text-right">Tax Total %1X</td>
@@ -269,7 +269,7 @@
                 </tr>
                 <tr>
                     <td colspan="3" class="text-right">Grand Total</td>
-                    <td> {{ $sum_toal }} CAD$</td>
+                    <td> {{ $sum_toal }} USD$</td>
                 </tr>
             </tbody>
         </table>
